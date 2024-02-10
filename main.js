@@ -9,7 +9,6 @@ fetch("tasbih.json")
 
         const qalma = document.getElementById("qalma");
         const greeting = document.getElementById("greeting");
-        const counter = document.getElementById("counter");
         const counter_text = document.getElementById("counter-text");
         const loop = document.getElementById("loop");
 
@@ -17,13 +16,14 @@ fetch("tasbih.json")
         greeting.textContent = `Target: ${target}`;
         counter_text.textContent = counter_count;
 
-        counter.addEventListener("click", set_counter_count);
+        document
+            .getElementsByTagName("main")[0]
+            .addEventListener("click", set_counter_count);
 
         function set_counter_count() {
             counter_count++;
-            const remaining = counter_count % (target + 1);
-            counter_text.textContent = remaining;
-            // greeting.textContent = `Target: ${target - remaining}`;
+            const remaining = counter_count % target;
+            counter_text.textContent = remaining ? remaining : target;
 
             if (counter_count % target === 0) set_loop();
         }
