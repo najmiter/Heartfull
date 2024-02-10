@@ -44,7 +44,6 @@ main>* {
     aspect-ratio: 1;
     margin-block-start: 2rem;
     border-radius: 50%;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
