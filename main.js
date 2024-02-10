@@ -3,8 +3,15 @@ fetch("tasbih.json")
     .then((tasbihaat) => {
         const today = new Date();
         const day = today.getDay();
+        const day_name = tasbihaat[day].day;
 
-        let counter_count = +localStorage.getItem("counter") ?? 0;
+        const old =
+            localStorage.getItem("today") ??
+            localStorage.setItem("today", day_name);
+
+        let counter_count =
+            old && old !== day_name ? 0 : +localStorage.getItem("counter") ?? 0;
+
         const target = 100;
 
         const qalma = document.getElementById("qalma");
@@ -12,7 +19,7 @@ fetch("tasbih.json")
         const counter_text = document.getElementById("counter-text");
         const loop = document.getElementById("loop");
 
-        qalma.setAttribute("src", `imgs/${tasbihaat[day].day}.svg`);
+        qalma.setAttribute("src", `imgs/${day_name}.svg`);
         greeting.textContent = `Target: ${target}`;
         counter_text.textContent = counter_count;
         loop.textContent = `Loop: ${localStorage.getItem("loop") ?? 0}`;
