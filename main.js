@@ -5,7 +5,7 @@ fetch("tasbih.json")
         const day = today.getDay();
 
         let counter_count = 0;
-        const target = 10;
+        const target = 100;
 
         const qalma = document.getElementById("qalma");
         const greeting = document.getElementById("greeting");
