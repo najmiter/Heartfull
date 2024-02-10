@@ -1,0 +1,59 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(24, 21, 30);
+    color: rgb(198, 198, 198);
+    height: 100dvh;
+    padding: clamp(1rem, 5vw, 3rem);
+    font-family: 'Times New Roman', Times, serif;
+    user-select: none;
+}
+
+main {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+}
+
+main>* {
+    align-self: center;
+}
+
+#greeting {
+    text-align: center;
+    font-size: clamp(1rem, 5vw, 2rem);
+    font-weight: 600;
+}
+
+#qalma {
+    width: clamp(15rem, 30vw, 25rem);
+    margin-block-start: 2rem;
+}
+
+#counter {
+    border: 1px solid palevioletred;
+    height: clamp(10rem, 20vw, 20rem);
+    font-size: clamp(10rem, 20vw, 20rem);
+    aspect-ratio: 1;
+    margin-block-start: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#counter-text {
+    font-size: 50%;
+}
+
+#loop {
+    margin-block-start: 2rem;
+}
