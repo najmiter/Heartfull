@@ -5,13 +5,12 @@ fetch("tasbih.json")
         const day = today.getDay();
         const day_name = tasbihaat[day].day;
 
-        const old =
-            localStorage.getItem("today") ??
-            localStorage.setItem("today", day_name);
+        const old = localStorage.getItem("today");
+        localStorage.setItem("today", day_name);
 
         let counter_count =
             old && old !== day_name ? 0 : +localStorage.getItem("counter") ?? 0;
-
+        
         const target = 100;
 
         const qalma = document.getElementById("qalma");
