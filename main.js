@@ -1,16 +1,22 @@
-fetch("tasbih.json")
+fetch("./tasbih.json")
     .then((res) => res.json())
     .then((tasbihaat) => {
         const today = new Date();
         const day = today.getDay();
+        const today_date = today.toLocaleDateString();
         const day_name = tasbihaat[day].day;
 
         const old = localStorage.getItem("today");
-        localStorage.setItem("today", day_name);
+        if (old !== today_date) {
+            localStorage.setItem("today", today_date);
+            localStorage.setItem("counter", "0");
+        }
 
         let counter_count =
-            old && old !== day_name ? 0 : +localStorage.getItem("counter") ?? 0;
-        
+            old && old !== today_date
+                ? 0
+                : +localStorage.getItem("counter") ?? 0;
+
         const target = 100;
 
         const qalma = document.getElementById("qalma");
@@ -25,7 +31,13 @@ fetch("tasbih.json")
 
         document
             .getElementsByTagName("main")[0]
-            .addEventListener("click", set_counter_count);
+            .addEventListener("click", handle_click);
+
+        function handle_click() {
+            set_counter_count();
+
+            if (counter_count % target === 0) set_loop();
+        }
 
         function set_counter_count() {
             counter_count++;
@@ -33,13 +45,13 @@ fetch("tasbih.json")
                 counter_count % target ? counter_count % target : target;
             counter_text.textContent = remaining;
 
-            if (counter_count % target === 0) set_loop();
-
             localStorage.setItem("counter", remaining);
         }
 
         function set_loop() {
-            const loop_count = Math.trunc(counter_count / target);
+            const loop_count =
+                (+localStorage.getItem("loop") ?? 0) +
+                (counter_count > 0 ? 1 : 0);
             loop.textContent = `Loop: ${loop_count}`;
             localStorage.setItem("loop", loop_count);
         }
