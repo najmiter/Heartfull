@@ -10,9 +10,10 @@ export default function Counter() {
             counter.setAttribute("data-progress", count);
 
             counter.style.setProperty("--progress", `${count}%`);
+
             counter.style.setProperty(
                 "--color",
-                count === 100 ? "green" : "orangered"
+                count === 100 ? "120, 100%, 25%" : "16, 100%, 50%"
             );
         },
         [count]

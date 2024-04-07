@@ -1,6 +1,6 @@
 .counter {
     --progress: 0;
-    --color: orangered;
+    --color: 16, 100%, 50%;
 
     width: 20rem;
     aspect-ratio: 1;
@@ -11,15 +11,16 @@
     font-weight: bold;
     color: var(--color);
 
-    background: conic-gradient(from 0deg, var(--color) var(--progress), transparent 0%);
+    background: conic-gradient(from 0deg, hsl(var(--color)) var(--progress), transparent 0%);
     position: relative;
 }
 
 .counter::after {
+    box-shadow: 0 0 40px 1px hsl(var(--color), 30%);
     content: attr(data-progress);
     width: 19rem;
     border-radius: 50%;
-    background: black;
+    background: rgb(27, 27, 27);
     display: grid;
     place-content: center;
     aspect-ratio: 1;
