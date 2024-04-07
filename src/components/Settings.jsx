@@ -4,6 +4,12 @@ import styles from "./Settings.module.css";
 export default function Settings({ target, setTarget }) {
     const [settingsActive, setSettingsActive] = useState(false);
 
+    function handleSetTarget(e) {
+        const newTarget = +e.target.value;
+        localStorage.setItem("heartfull_TARGET", newTarget);
+        setTarget(newTarget);
+    }
+
     return (
         <div
             className={`${styles.settings} ${settingsActive ? styles.settingsActive : ""}`}
@@ -16,7 +22,7 @@ export default function Settings({ target, setTarget }) {
                 <div className={styles.settingsItem}>
                     <label htmlFor="target">Target</label>
                     <input
-                        onChange={(e) => setTarget(+e.target.value)}
+                        onChange={handleSetTarget}
                         type="number"
                         id="target"
                         value={target}
