@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Counter from "./components/Counter";
-import Home from "./components/Home";
+import Layout from "./components/Layout";
 
 export default function App() {
     const [count, setCount] = useState(0);
@@ -9,9 +8,5 @@ export default function App() {
         setCount(count + 1);
     }
 
-    return (
-        <Home onClick={handleSetCount}>
-            <Counter count={count} />
-        </Home>
-    );
+    return <Layout onClick={handleSetCount}></Layout>;
 }

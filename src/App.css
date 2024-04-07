@@ -1,0 +1,48 @@
+body {
+    height: 100vh;
+    height: 100svh;
+    font-size: 1.5rem;
+}
+
+:root {
+    --text-light: 0, 0%, 70%;
+
+    /* color: rgb(222, 222, 222); */
+}
+
+#root {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    justify-items: center;
+    position: relative;
+    height: 100%;
+    color: hsl(var(--text-light));
+}
+
+#root::before,
+#root::after {
+    content: '';
+    position: absolute;
+    width: 10rem;
+    aspect-ratio: 1/2;
+    border-radius: 50%;
+    filter: blur(8rem);
+    opacity: 0.8;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(to right, dodgerblue, purple);
+}
+
+#root::before {
+    top: -5vh;
+    right: 2vw;
+}
+
+#root::after {
+    bottom: 10vh;
+    left: -20vw;
+    rotate: 90deg;
+    background: linear-gradient(to right, dodgerblue, orangered);
+}

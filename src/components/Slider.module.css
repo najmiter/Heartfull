@@ -1,0 +1,23 @@
+.slider {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90vw;
+    height: 100vh;
+    height: 100svh;
+    background-color: rgba(36, 36, 36, 0.654);
+    backdrop-filter: blur(1rem);
+    position: fixed;
+    top: 0;
+
+    transition: left 300ms ease;
+}
+
+.sliderOff {
+    left: -100%;
+}
+
+.sliderOn {
+    left: 0;
+}
