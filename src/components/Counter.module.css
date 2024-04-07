@@ -1,6 +1,8 @@
 .counter {
     --progress: 0;
-    --color: 16, 100%, 50%;
+    --red-color: 16, 100%, 50%;
+    --green-color: 120, 100%, 25%;
+    --color: var(--red-color);
 
     width: 20rem;
     aspect-ratio: 1;

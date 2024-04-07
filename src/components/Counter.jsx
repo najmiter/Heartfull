@@ -14,7 +14,7 @@ export default function Counter({ count, target }) {
             );
             counter.style.setProperty(
                 "--color",
-                count === target ? "120, 100%, 25%" : "16, 100%, 50%"
+                count === target ? "var(--green-color)" : "var(--red-color)"
             );
         },
         [count, target]
