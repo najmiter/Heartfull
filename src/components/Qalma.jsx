@@ -1,5 +1,5 @@
 import styles from "./Qalma.module.css";
 
 export default function Qalma({ qalma }) {
-    return <div className={styles.qalma}>{qalma}</div>;
+    return <div className={styles.qalma}>{qalma?.qalma}</div>;
 }

@@ -7,10 +7,8 @@ import Qalma from "./components/Qalma";
 import Details from "./components/Details";
 
 export default function App() {
-    const [count, setCount] = useState(0);
     const [sliderOn, setSliderOn] = useState(false);
-    const [qalma, setQalma] = useState("");
-    const [loop, setLoop] = useState(0);
+    const [qalma, setQalma] = useState(null);
     const [target, setTarget] = useState(100);
 
     function handelSetSliderOn() {
@@ -18,19 +16,39 @@ export default function App() {
     }
 
     useEffect(function () {
-        (async function () {
-            fetch("qalmas.json")
-                .then((jwb) => jwb.json())
-                .then((qalmas) => setQalma(qalmas[new Date().getDay()]));
-        })();
+        const thisDay = new Date().getDay();
+        const realFakeAPI = `heartfull_DAY/${thisDay}`;
+        const local = localStorage.getItem(realFakeAPI);
+
+        if (local) {
+            setQalma(JSON.parse(local));
+        } else {
+            (async function () {
+                fetch("qalmas.json")
+                    .then((jwb) => jwb.json())
+                    .then((qalmas) => {
+                        setQalma(qalmas[thisDay]);
+                        setTarget(+qalmas?.target);
+                    });
+            })();
+        }
     }, []);
 
     function handleMainClick() {
-        setCount((count % target) + 1);
+        const thisDay = new Date().getDay();
+        const realFakeAPI = `heartfull_DAY/${thisDay}`;
 
-        if ((count + 1) % target === 0) {
-            setLoop(loop + 1);
-        }
+        setQalma((qalma) => {
+            const latestQalma = {
+                ...qalma,
+                count: (qalma.count % target) + 1,
+                loop: qalma.loop + Number((qalma.count + 1) % target === 0),
+            };
+
+            localStorage.setItem(realFakeAPI, JSON.stringify(latestQalma));
+
+            return latestQalma;
+        });
     }
 
     return (
@@ -38,8 +56,8 @@ export default function App() {
             <Header handelSetSliderOn={handelSetSliderOn} />
             <Main handleMainClick={handleMainClick}>
                 <Qalma qalma={qalma} />
-                <Counter count={count} />
-                <Details loop={loop} target={target} />
+                <Counter count={qalma?.count} />
+                <Details loop={qalma?.loop} target={target} />
             </Main>
             <Slider sliderOn={sliderOn} handelSetSliderOn={handelSetSliderOn} />
         </>
