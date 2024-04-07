@@ -5,9 +5,7 @@ export default function Details({ loop, target }) {
     return (
         <div className={styles.details}>
             <span className={styles.detailItem}>Loop: {loop}</span>
-            <span onClick={() => {}} className={styles.detailItem}>
-                Target: {target}
-            </span>
+            <span className={styles.detailItem}>Target: {target}</span>
         </div>
     );
 }

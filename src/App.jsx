@@ -25,7 +25,7 @@ export default function App() {
         })();
     }, []);
 
-    function handleSetCount() {
+    function handleMainClick() {
         setCount((count % target) + 1);
 
         if ((count + 1) % target === 0) {
@@ -36,7 +36,7 @@ export default function App() {
     return (
         <>
             <Header handelSetSliderOn={handelSetSliderOn} />
-            <Main handleSetCount={handleSetCount}>
+            <Main handleMainClick={handleMainClick}>
                 <Qalma qalma={qalma} />
                 <Counter count={count} />
                 <Details loop={loop} target={target} />

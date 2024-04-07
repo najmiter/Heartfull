@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import styles from "./Main.module.css";
 
-export default function Main({ handleSetCount, children }) {
+export default function Main({ handleMainClick, children }) {
     return (
-        <main onClick={handleSetCount} className={styles.main}>
+        <main onClick={handleMainClick} className={styles.main}>
             {children}
         </main>
     );
