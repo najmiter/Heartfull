@@ -13,7 +13,7 @@ body {
 #root {
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: 1rem;
+    gap: 3rem;
     align-items: start;
     justify-items: center;
     position: relative;

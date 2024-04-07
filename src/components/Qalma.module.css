@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'qalma';
+    src: url('Amiri-Bold.woff') format('woff');
+}
+
+.qalma {
+    font-family: 'qalma';
+    text-align: center;
+    font-size: 2em;
+    /* width: 90%; */
+    background-image: linear-gradient(to top, rgb(198, 90, 2), rgb(209, 161, 3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

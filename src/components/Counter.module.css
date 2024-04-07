@@ -18,12 +18,11 @@
 .counter::after {
     box-shadow: 0 0 40px 1px hsl(var(--color), 30%);
     content: attr(data-progress);
-    width: 19rem;
+    width: 19.5rem;
     border-radius: 50%;
     background: rgb(27, 27, 27);
     display: grid;
     place-content: center;
     aspect-ratio: 1;
-    margin: auto;
 
 }
