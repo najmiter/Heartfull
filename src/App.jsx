@@ -5,6 +5,7 @@ import Slider from "./components/Slider";
 import Counter from "./components/Counter";
 import Qalma from "./components/Qalma";
 import Details from "./components/Details";
+import Settings from "./components/Settings";
 
 export default function App() {
     const [sliderOn, setSliderOn] = useState(false);
@@ -22,6 +23,9 @@ export default function App() {
 
         if (local) {
             setQalma(JSON.parse(local));
+            setTarget(
+                JSON.parse(localStorage.getItem("heartfull_TARGET")) ?? 100
+            );
         } else {
             (async function () {
                 fetch("qalmas.json")
@@ -29,6 +33,10 @@ export default function App() {
                     .then((qalmas) => {
                         setQalma(qalmas[thisDay]);
                         setTarget(+qalmas?.target);
+                        localStorage.setItem(
+                            "heartfull_TARGET",
+                            qalmas?.target
+                        );
                     });
             })();
         }
@@ -56,10 +64,11 @@ export default function App() {
             <Header handelSetSliderOn={handelSetSliderOn} />
             <Main handleMainClick={handleMainClick}>
                 <Qalma qalma={qalma} />
-                <Counter count={qalma?.count ?? 0} />
+                <Counter count={qalma?.count ?? 0} target={target} />
                 <Details loop={qalma?.loop ?? 0} target={target} />
             </Main>
             <Slider sliderOn={sliderOn} handelSetSliderOn={handelSetSliderOn} />
+            <Settings target={target} setTarget={setTarget} />
         </>
     );
 }

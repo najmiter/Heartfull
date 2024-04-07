@@ -1,0 +1,57 @@
+.settings {
+    position: fixed;
+    top: 96vh;
+    left: 0;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+
+    transition: top 300ms ease;
+}
+
+.settingsActive {
+    top: 60vh;
+}
+
+.tundu {
+    height: 2rem;
+    width: 100%;
+    position: relative;
+}
+
+.tundu::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 0.5rem;
+    width: 3rem;
+    border-radius: 100vh;
+    background-color: rgb(97, 97, 97);
+}
+
+.settingsWrapper {
+    display: grid;
+    padding-inline: 2rem;
+    padding-block-start: 2rem;
+    width: 100%;
+    height: 40vh;
+    background-color: rgba(32, 32, 32, 0.804);
+    backdrop-filter: blur(1rem);
+}
+
+.settingsItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+}
+
+.settingsItem input {
+    padding: 0.5rem 1rem;
+    background-color: inherit;
+    border: 1px solid hsl(var(--text-light), 40%);
+    border-radius: 100vh;
+}
