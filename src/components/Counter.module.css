@@ -1,0 +1,28 @@
+.counter {
+    --progress: 0;
+    --color: orangered;
+
+    width: 20rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    font-size: 5em;
+    font-weight: bold;
+    color: var(--color);
+
+    background: conic-gradient(from 0deg, var(--color) var(--progress), transparent 0%);
+    position: relative;
+}
+
+.counter::after {
+    content: attr(data-progress);
+    width: 19rem;
+    border-radius: 50%;
+    background: black;
+    display: grid;
+    place-content: center;
+    aspect-ratio: 1;
+    margin: auto;
+
+}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Slider from "./components/Slider";
+import Counter from "./components/Counter";
 
 export default function App() {
     const [sliderOn, setSliderOn] = useState(false);
@@ -13,7 +14,9 @@ export default function App() {
     return (
         <>
             <Header handelSetSliderOn={handelSetSliderOn} />
-            <Main />
+            <Main>
+                <Counter />
+            </Main>
             <Slider sliderOn={sliderOn} handelSetSliderOn={handelSetSliderOn} />
         </>
     );
