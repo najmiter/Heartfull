@@ -56,8 +56,8 @@ export default function App() {
             <Header handelSetSliderOn={handelSetSliderOn} />
             <Main handleMainClick={handleMainClick}>
                 <Qalma qalma={qalma} />
-                <Counter count={qalma?.count} />
-                <Details loop={qalma?.loop} target={target} />
+                <Counter count={qalma?.count ?? 0} />
+                <Details loop={qalma?.loop ?? 0} target={target} />
             </Main>
             <Slider sliderOn={sliderOn} handelSetSliderOn={handelSetSliderOn} />
         </>

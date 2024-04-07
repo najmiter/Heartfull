@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from "./Qalma.module.css";
 
 export default function Qalma({ qalma }) {
