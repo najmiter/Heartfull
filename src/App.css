@@ -19,6 +19,8 @@ body {
     position: relative;
     height: 100%;
     color: hsl(var(--text-light));
+    width: clamp(250px, 100%, 550px);
+    margin: 0 auto;
 }
 
 #root::before,
