@@ -1,12 +1,20 @@
 import { useState } from "react";
-import Layout from "./components/Layout";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Slider from "./components/Slider";
 
 export default function App() {
-    const [count, setCount] = useState(0);
+    const [sliderOn, setSliderOn] = useState(false);
 
-    function handleSetCount() {
-        setCount(count + 1);
+    function handelSetSliderOn() {
+        setSliderOn((flag) => !flag);
     }
 
-    return <Layout onClick={handleSetCount}></Layout>;
+    return (
+        <>
+            <Header handelSetSliderOn={handelSetSliderOn} />
+            <Main />
+            <Slider sliderOn={sliderOn} handelSetSliderOn={handelSetSliderOn} />
+        </>
+    );
 }

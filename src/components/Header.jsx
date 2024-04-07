@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import styles from "./Header.module.css";
 
 const today = new Date();

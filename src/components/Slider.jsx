@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from "./Slider.module.css";
 
 export default function Slider({ sliderOn, handelSetSliderOn }) {
