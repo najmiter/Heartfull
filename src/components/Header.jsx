@@ -3,9 +3,7 @@ import styles from "./Header.module.css";
 
 const today = new Date();
 const formatting = {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
+    weekday: "long",
 };
 
 export default function Header({ handelSetSliderOn }) {
@@ -14,7 +12,7 @@ export default function Header({ handelSetSliderOn }) {
             <nav className={styles.navbar}>
                 <ul className={styles.navItems}>
                     <li onClick={handelSetSliderOn}>Stats</li>
-                    <li>{today.toLocaleDateString("en-us", formatting)}</li>
+                    <li>{today.toLocaleDateString("en-US", formatting)}</li>
                 </ul>
             </nav>
         </header>
