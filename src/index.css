@@ -25,3 +25,13 @@ input {
 label {
     font-size: 0.8em;
 }
+
+button {
+    cursor: pointer;
+    outline: none;
+    border-radius: 100vh;
+    border: none;
+    background-color: rgb(65, 65, 65);
+    color: inherit;
+    padding: 1rem 2rem;
+}

@@ -1,8 +1,9 @@
 .slider {
     padding: 2rem;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3rem;
     width: 90vw;
     height: 100vh;
     height: 100svh;
@@ -20,4 +21,49 @@
 
 .sliderOn {
     left: 0;
+}
+
+.sliderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.historyItem {
+    width: 100%;
+    align-self: flex-end;
+    display: grid;
+    align-items: center;
+    padding: 1rem;
+    grid-template-columns: repeat(2, 3rem) 1fr;
+    background-color: rgba(41, 41, 41, 0.601);
+    backdrop-filter: blur(1rem);
+    border-radius: 1rem;
+}
+
+.active {
+    background-color: rgba(39, 59, 91, 0.601);
+}
+
+.historyHeader {
+    display: grid;
+    grid-template-columns: repeat(2, 3rem) 1fr;
+    padding: 1rem;
+}
+
+.qalma {
+    font-family: "Amiri", serif;
+    font-weight: 700;
+    text-align: right;
+    background-image: linear-gradient(to top, rgb(198, 90, 2), rgb(209, 161, 3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
