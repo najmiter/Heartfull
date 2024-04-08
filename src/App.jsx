@@ -41,7 +41,7 @@ export default function App() {
     }
 
     useEffect(function () {
-        if (localStorage.getItem("heartfull_ISFIRSTTIME")) {
+        if (!localStorage.getItem("heartfull_ISFIRSTTIME")) {
             resetLocalStorage();
             localStorage.setItem("heartfull_ISFIRSTTIME", "false");
         }

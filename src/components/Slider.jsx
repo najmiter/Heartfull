@@ -23,14 +23,15 @@ export default function Slider({ sliderOn, handelSetSliderOn }) {
                     const qalma = JSON.parse(
                         localStorage.getItem(`heartfull_DAY/${d}`)
                     );
+
                     return (
                         <div
                             className={`${styles.historyItem} ${today === d ? styles.active : ""}`}
                             key={d}
                         >
-                            <span className="">{qalma.loop}</span>
-                            <span className="">{qalma.count}</span>
-                            <span className={styles.qalma}>{qalma.qalma}</span>
+                            <span className="">{qalma?.loop}</span>
+                            <span className="">{qalma?.count}</span>
+                            <span className={styles.qalma}>{qalma?.qalma}</span>
                         </div>
                     );
                 })}
