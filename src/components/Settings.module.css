@@ -1,7 +1,6 @@
 .settings {
     position: fixed;
-    top: 94vh;
-    top: 96svh;
+    top: 96%;
     left: 0;
     width: 100%;
     display: grid;
@@ -11,7 +10,7 @@
 }
 
 .settingsActive {
-    top: 60vh;
+    top: 60%;
 }
 
 .tundu {
