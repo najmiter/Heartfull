@@ -1,12 +1,11 @@
 .header {
     width: 100%;
     background-color: rgba(55, 55, 55, 0.3);
-    padding-block: 2rem;
+    padding-block: 1.5rem;
     backdrop-filter: blur(5rem);
 }
 
 .navbar {
-    width: clamp();
     padding-inline: 10%;
 }
 
@@ -14,5 +13,22 @@
 .navItems {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     user-select: none;
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(136, 136, 136, 0.58);
+}
+
+.burger span {
+    height: 1px;
+    width: 2rem;
+    margin-block: 0.25rem;
+    background-color: rgb(161, 161, 161);
 }

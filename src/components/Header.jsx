@@ -11,7 +11,13 @@ export default function Header({ handelSetSliderOn }) {
         <header className={styles.header}>
             <nav className={styles.navbar}>
                 <ul className={styles.navItems}>
-                    <li onClick={handelSetSliderOn}>Stats</li>
+                    <li onClick={handelSetSliderOn}>
+                        <div className={styles.burger}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </li>
                     <li>{today.toLocaleDateString("en-US", formatting)}</li>
                 </ul>
             </nav>
