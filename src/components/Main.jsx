@@ -10,11 +10,14 @@ export default function Main({ handleMainClick, children }) {
     }
 
     function handleTouchEnd(e) {
+        const swipeLength = 70;
         const endX = e.changedTouches[0].clientX;
         console.log(x - endX);
 
-        if (x - endX < -70) {
+        if (x - endX < -swipeLength) {
             handleMainClick(-1);
+        } else if (x - endX > swipeLength) {
+            handleMainClick(1);
         }
     }
 
