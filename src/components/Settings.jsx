@@ -44,6 +44,9 @@ export default function Settings({
                     />
                 </div>
                 <div className={styles.settingsItem}>
+                    Swipe right ⏯ to go back
+                </div>
+                <div className={styles.settingsItem}>
                     <button onClick={resetEverything_localStorage}>
                         Reset Everything
                     </button>

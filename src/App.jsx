@@ -62,7 +62,7 @@ export default function App() {
         }
     }, []);
 
-    function handleMainClick() {
+    function handleMainClick(data = 1) {
         if (sliderOn) setSliderOn(false);
         if (settingsActive) setSettingsActive(false);
         else if (!settingsActive && !sliderOn) {
@@ -72,8 +72,13 @@ export default function App() {
             setQalma((qalma) => {
                 const latestQalma = {
                     ...qalma,
-                    count: (qalma.count % target) + 1,
-                    loop: qalma.loop + Number((qalma.count + 1) % target === 0),
+                    count:
+                        (qalma.count % target) + data >= 0
+                            ? (qalma.count % target) + data
+                            : 0,
+                    loop:
+                        qalma.loop +
+                        Number((qalma.count + data) % target === 0 && data > 0),
                 };
 
                 localStorage.setItem(realFakeAPI, JSON.stringify(latestQalma));
