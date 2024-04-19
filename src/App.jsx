@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Slider from "./components/Slider";
@@ -35,6 +35,7 @@ export default function App() {
     const [settingsActive, setSettingsActive] = useState(false);
     const [qalma, setQalma] = useState(null);
     const [target, setTarget] = useState(100);
+    const audio = useRef();
 
     function handelSetSliderOn() {
         setSliderOn((flag) => !flag);
@@ -66,6 +67,15 @@ export default function App() {
         if (sliderOn) setSliderOn(false);
         if (settingsActive) setSettingsActive(false);
         else if (!settingsActive && !sliderOn) {
+            const previousLoop = qalma.loop;
+            const latestLoop =
+                qalma.loop +
+                Number((qalma.count + data) % target === 0 && data > 0);
+
+            if (previousLoop !== latestLoop) {
+                audio.current.play();
+            }
+
             const thisDay = new Date().getDay();
             const realFakeAPI = `heartfull_DAY/${thisDay}`;
 
@@ -76,9 +86,7 @@ export default function App() {
                         (qalma.count % target) + data >= 0
                             ? (qalma.count % target) + data
                             : 0,
-                    loop:
-                        qalma.loop +
-                        Number((qalma.count + data) % target === 0 && data > 0),
+                    loop: latestLoop,
                 };
 
                 localStorage.setItem(realFakeAPI, JSON.stringify(latestQalma));
@@ -124,6 +132,7 @@ export default function App() {
                 initialQalmas={initialQalmas}
                 resetLocalStorage={resetLocalStorage}
             />
+            <audio ref={audio} src="alert.mp3"></audio>
         </>
     );
 }
