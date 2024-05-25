@@ -12,13 +12,12 @@ export default function Main({ handleMainClick, children }) {
     function handleTouchEnd(e) {
         const swipeLength = 70;
         const endX = e.changedTouches[0].clientX;
-        console.log(x - endX);
 
-        if (x - endX < -swipeLength) {
-            handleMainClick(-1);
-        } else if (x - endX > swipeLength) {
-            handleMainClick(1);
-        }
+        if (endX === x) return;
+
+        const by = x - endX < -swipeLength ? -1 : 1;
+
+        handleMainClick(by);
     }
 
     return (
