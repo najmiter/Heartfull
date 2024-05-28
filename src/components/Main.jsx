@@ -22,7 +22,7 @@ export default function Main({ handleMainClick, children }) {
 
     return (
         <main
-            onClick={() => handleMainClick(1)}
+            // onClick={() => handleMainClick(1)}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             className={styles.main}
