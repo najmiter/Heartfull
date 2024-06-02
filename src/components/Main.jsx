@@ -17,7 +17,7 @@ export default function Main({ handleMainClick, children }) {
 
         if (x - endX < -swipeLength) {
             handleMainClick(-1);
-        } else if (x - endX > -swipeLength) {
+        } else if (x - endX > swipeLength) {
             handleMainClick(1);
         }
     }
