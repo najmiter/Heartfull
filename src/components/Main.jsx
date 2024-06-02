@@ -15,14 +15,16 @@ export default function Main({ handleMainClick, children }) {
 
         if (endX === x) return;
 
-        const by = x - endX < -swipeLength ? -1 : 1;
-
-        handleMainClick(by);
+        if (x - endX < -swipeLength) {
+            handleMainClick(-1);
+        } else if (x - endX > -swipeLength) {
+            handleMainClick(1);
+        }
     }
 
     return (
         <main
-            // onClick={() => handleMainClick(1)}
+            onClick={() => handleMainClick(1)}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             className={styles.main}
