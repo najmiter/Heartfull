@@ -61,6 +61,15 @@ export default function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(() => void 0)
+        .catch(() => void 0);
+    }
+  }, []);
+
   function handleMainClick(data = 1) {
     if (sliderOn) setSliderOn(false);
     if (settingsActive) setSettingsActive(false);
